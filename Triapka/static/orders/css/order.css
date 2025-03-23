@@ -1,0 +1,28 @@
+
+.konto_section {
+    min-height: 100vh;
+
+}
+
+.order_content_wrapper {
+    margin: 50px;
+    display: flex;
+    width: 70vw;
+    max-width: 90rem;
+    justify-content: space-between;
+}
+
+
+.paid_order_items {
+    margin: 1rem 0 !important;
+}
+
+.order_details_container {
+    text-align: end;
+    min-width: 18rem;
+}
+
+.order_details_container h3 {
+
+    text-align: start;
+}

@@ -1,0 +1,8 @@
+<div class="user_name"> {{ user.first_name}} {{ user.last_name}} 
+</div>
+<div class="konto_nav">
+    <a href="{% url 'users:konto' user.username %}" class="{% if request.path == '/users/konto/'|add:user.username|add:'/'  %}active{% endif %}  btn_edit">Profil</a>
+    <a href="{% url 'orders:orders' user.username %}" class="{% if request.path == '/orders/orders/'|add:user.username|add:'/' %}active{% endif %} btn_edit">Zamówienia</a>
+    <a href="{% url 'users:ulubione' %}" class="{% if request.path == '/users/ulubione/' %}active{% endif %} btn_edit" >Ulubione</a>
+    <a href="{% url 'users:ustawienia' user.username %}" class="{% if request.path == '/users/ustawienia/'|add:user.username|add:'/' %}active{% endif %} btn_edit">Ustawienia</a>
+</div> 

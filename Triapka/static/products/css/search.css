@@ -1,0 +1,266 @@
+/* -------------- */
+/* search_section */
+/* -------------- */
+html {
+    height: 100%;
+}
+
+        .container_position {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+.search_section {
+    min-height: 100vh;
+    width: 100%;
+    
+}
+.search_container {
+    min-height: 100vh;
+    padding: 4rem 0;
+    
+}
+    /* Title-Section */
+.title_search h1{
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 3rem;
+}
+    /* button-hide-filter */
+.block_hide_filter{
+    margin-top: 3rem;
+    width: 80rem;
+    max-width: 90vw;
+    display: flex;
+}
+.div_hide_filter, 
+.div_hide_filter_mob{
+    margin-left: auto;
+    margin-right: 1.5rem;
+}
+.button_hide_filter{
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: var(--color-1);
+    border: none;
+    cursor: pointer;
+    transition: font-weight .4s;
+}
+.button_hide_filter:hover{
+    font-weight: 600;
+}
+.div_hide_filter_mob {
+    display: none;
+}
+    
+    /* Lauout */
+.lauout {
+    margin-top: 1rem;
+    
+    max-width: 100rem;
+    display: flex;
+    
+}
+
+    /* Catalog */
+.catalog {
+    width: 100%;
+}
+.catalog_wall {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 22rem 22rem 22rem;
+}
+.catalog_item {
+    margin: 0 0 3rem 0 ;
+}
+.catalog_item p {
+    font-family: 'Lota Grotesque', sans-serif;
+}
+.catalog_item img{
+    border: 2px solid var(--color-2);
+    margin-bottom: 1rem;
+    transition: opacity 0.4s;
+}
+.catalog_item img:hover{
+    opacity: 0.6;
+    
+}
+
+    /* Sidebar */
+.sidebar hr {
+    margin: 2rem auto 2rem 0;
+    max-width: 12rem;
+}
+.sidebar {
+    width: 20%;
+    transition: all 0.5s; 
+    margin-right: 1rem;
+    min-width: 250px;
+}
+
+    /* Title-check-bloks */
+.title_check {
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+}
+
+/* Check-blocks */
+.form-check-label {
+    font-family: 'Lota Grotesque', sans-serif;
+} 
+.form-check-input:checked {
+    accent-color: var(--color-2);
+ 
+}
+
+
+    /* check-block-2 */
+    .size-wall {
+        display: grid;
+        gap:  1.5rem 0;
+        grid-template-columns: 3.5rem 3.5rem 3.5rem 3.5rem ;
+    }
+    .button-check-size {
+        font-family: 'Lota Grotesque', sans-serif;
+        background-color: var(--color-1);
+        border: 2px solid var(--color-2);
+        border-radius: 5px;
+        padding: 5px 5px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    .button-check-size:hover {
+        background-color: var(--color-2);
+        color: var(--color-1);
+        transition: background-color .5s;
+    }
+    .button-check-size.is-selected {
+        background-color: var(--color-2);
+        color: var(--color-1);
+    }
+
+
+    /* check-block-3 */
+    .brands-wall {
+        scrollbar-width:auto;
+        max-height: 9rem;
+        overflow-y: auto;
+    }
+
+    /* btn_check */
+    form .button_add_to_bag {
+        margin-top: 1rem ;
+        padding: 0.6rem 4rem;
+    }
+
+
+
+/* error_product */
+.error_product_access {
+    min-width: 1000px;
+    
+    text-align: center;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .brands-wall{
+    scrollbar-width: thin;
+    scrollbar-color: #000000 #ffffff;
+  }
+  /* Chrome, Edge, and Safari */
+  .brands-wall::-webkit-scrollbar {
+    width: 7px;
+  }
+  .brands-wall::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  .brands-wall::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 10px;
+  }
+
+.block_hide_filter_mob {
+    display: none;
+}
+
+/* -------- */
+/* NAV_PAGE */
+/* -------- */
+.nav_page{
+    display: flex;
+}
+.page_link {
+    padding: 0.3rem 0.3rem;
+    font-family: 'Lota Grotesque', sans-serif;
+}
+.page_link:hover{
+    
+    background-color: #d6d6d6;
+}
+.disabled a{
+    color: #6d6d6d;
+}
+
+
+/* 1450 */
+@media only screen and (max-width: 1450px) {
+    /*THIRD_section*/
+    .sidebar {
+        
+        background-color: var(--color-1);
+        position: absolute;
+        position: fixed;
+        min-width: 100vw;
+        overflow-y:scroll;
+       
+        height: 100%;
+        
+        z-index: 100;
+        
+        top: 0px;
+        padding: 5rem 0 2rem 1rem;
+    }
+    .error_product_access {
+        min-width: 100px;
+        
+        margin: 0 auto;
+    }
+    .block_hide_filter_mob {
+        display: flex;
+        margin-top: -1.5rem;
+        margin-bottom: 1.2rem;
+    }
+    body.lock_mob {
+        overflow: hidden;
+   }
+   .lauout {
+    margin-top: 1rem;
+    
+    min-width: 100%;
+    display: flex;
+    
+}
+}
+
+
+/* 1250 */
+@media only screen and (max-width: 1100px) {
+    .catalog_wall {
+        grid-template-columns: 22rem 22rem ;
+    }
+}
+/* 850 */
+@media only screen and (max-width: 850px) {
+    .catalog_wall {
+        grid-template-columns: 18rem    ;
+    }
+    .title_search h1{
+        font-size: 2.5rem;
+    }
+}

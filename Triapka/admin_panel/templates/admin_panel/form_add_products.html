@@ -1,0 +1,97 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %} 
+{%block css%}
+
+<link rel="stylesheet" href="{%static 'admin_panel/css/form_add_products.css'%}">
+ 
+{%endblock%}
+
+{% block content%}
+<section id="section_1">
+    <div class="wall">
+        <form method="post" action="{%url 'admin_panel:form_add_products'%}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+        
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea><br><br>
+        
+            <label for="price">Price:</label>
+            <input type="number" step="1" id="price" name="price" required><br><br>
+        
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image"><br><br>
+        
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                {% for gender in unique_genders %}
+                        <option value="{{ gender.1}}">{{ gender.1}}</option>
+                {% endfor%}
+            </select>
+            <br><br>
+        
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                {% for category in all_categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select><br><br>
+        
+            <label for="brands">Brand:</label>
+            <select id="brands" name="brands" required>
+                {% for brand in all_brands %}
+                    <option value="{{ brand.id}}">{{ brand.name}}</option>
+                {% endfor%}
+            </select><br><br>
+        
+            <fieldset id="sizeQuantitySection">
+                <legend>Size and quantity:</legend>
+                <div class="sizeQuantity">
+                    <label for="sizes0">Size:</label>
+                    <select id="sizes0" name="sizes[]">
+                        {% for size in all_size %}
+                            <option value="{{ size.size}}">{{ size.size}}</option>
+                        {% endfor%}
+                    </select>
+                    <label for="quantities0">Quantities:</label>
+                    <input type="number" id="quantities0" name="quantities[]" min="0" required>
+                    <button type="button" onclick="removeSizeQuantity(this)">Delete</button><br><br>
+                </div>
+            </fieldset>
+        
+            <button type="button" onclick="addSizeQuantity()">Add size </button><br><br>
+
+            <input type="submit" value="Create product">
+        </form>
+        
+    </div>
+</section>
+{% endblock %}
+   
+{% block scripts %}  
+<script>
+    
+        var sizeIndex = 1; 
+        
+        function addSizeQuantity() {
+            var sizesHtml = `{% for size in all_size %}<option value="{{ size.size }}">{{ size.size }}</option>{% endfor %}`; // HTML для выбора размера
+            var newDiv = document.createElement("div"); // Создаем новый div для размера и количества
+            newDiv.setAttribute("class", "sizeQuantity"); // Присваиваем класс для нового блока
+            newDiv.innerHTML = `<label for="sizes${sizeIndex}">Размер:</label>
+                                <select id="sizes${sizeIndex}" name="sizes[]">${sizesHtml}</select>
+                                <label for="quantities${sizeIndex}">Количество:</label>
+                                <input type="number" id="quantities${sizeIndex}" name="quantities[]" min="0" required>
+                                <button type="button" onclick="removeSizeQuantity(this)">Удалить</button><br><br>`; // Добавляем HTML для новых размеров и количества
+        
+            document.getElementById("sizeQuantitySection").appendChild(newDiv); // Добавляем новый div в раздел размеров
+            sizeIndex++; // Увеличиваем индекс размера для следующего элемента
+        }
+        
+        function removeSizeQuantity(element) {
+            var div = element.parentNode; // Получаем родительский элемент кнопки "Удалить"
+            div.remove(); // Удаляем этот div из DOM
+        }
+        
+    </script>
+{% endblock %}   

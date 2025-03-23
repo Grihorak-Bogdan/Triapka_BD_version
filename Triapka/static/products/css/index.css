@@ -1,0 +1,413 @@
+
+
+
+/*------------*/
+/*MAIN_SECTION*/
+/*------------*/
+.main_section_size {
+    min-height: 100vh;
+    background-color: var(--color-4);
+}
+.swiper {
+    width: 100%;
+    height: 100vh;
+}
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+    /*slider*/
+.swiper-button-prev, .swiper-button-next {
+    color: var(--color-1);
+    margin: 0 1rem;
+}
+.swiper-pagination-bullet-active {
+    background-color: var(--color-3);
+}
+.swiper-pagination-bullet {
+    width: 0.7rem;
+    height: 0.7rem;
+}
+.block_new_info {
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    padding: 2rem 3rem;
+    position: absolute;
+}
+.block_new_info h3{
+    color: var(--color-2);
+    font-size: 40px;
+    font-family: 'Lota Grotesque', sans-serif;
+    right: 0;
+}
+.swiper-button-next::after, .swiper-rtl .swiper-button-prev::after {
+    content: none;
+}
+.swiper-button-prev::after, .swiper-rtl .swiper-button-next::after {
+    content: none;
+}
+
+
+
+/*--------------*/
+/*SECOND_SECTION*/
+/*--------------*/
+.second_section_size{
+    overflow: hidden;
+    background-color: var(--color-2);
+}
+.section_position{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+.run_line1_positio{
+    margin: 0 0 8rem 0;
+}
+.run_line2_positio{
+    margin: 8rem 0 0  0;
+}
+.run_line{
+    position: relative;
+    width: 100%;
+}
+.scroll {
+    width: calc(100% + 400px);
+    left: -400px;
+    display: flex;
+    color: var(--color-3);
+}
+.scroll div {
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 3em;
+    letter-spacing: 0.3em;
+    white-space: nowrap;
+}
+.scroll_animate1 div {
+    animation: animate 120s linear infinite;
+    animation-delay: -120s;
+}
+.scroll_animate2 div {
+    animation: animate_2 120s linear infinite;
+    animation-delay: -120s;
+}
+.scroll_animate1 div:nth-child(2){
+    animation: animate-two 120s linear infinite;
+    animation-delay: -60s;
+}
+.scroll_animate2 div:nth-child(2){
+    animation: animate-two_2 120s linear infinite;
+    animation-delay: -60s;
+}
+/* first animate */
+@keyframes animate {
+    0%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(150%);
+    }
+}
+@keyframes animate-two {
+    0%{
+        transform: translateX(-150%);   
+    }
+    100%{
+        transform: translateX(50%);
+    }
+}
+/* second animate */
+@keyframes animate_2 {
+    0%{
+        transform: translateX(150%);
+    }
+    100%{
+        transform: translateX(-50%);
+    }
+}
+@keyframes animate-two_2 {
+    0%{
+        transform: translateX(50%);
+    }
+    100%{
+        transform: translateX(-150%);
+    }
+}
+
+.title_second_sectin h3 {
+    font-size: 4rem;
+    color: var(--color-3);
+    text-align: center;
+    justify-content: center;
+    font-family: 'Lota Grotesque', sans-serif;
+}
+.title_second_sectin p {
+    text-align: center;
+    margin: 0 auto;
+    max-width:  20rem;
+    color: var(--color-3);
+    font-family: 'Lota Grotesque', sans-serif;
+}
+
+
+
+
+/*--------------*/
+/*THIRD_SECTION*/
+/*--------------*/
+.new_collectin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0;
+}
+
+.title_sections {
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 4rem;
+    text-transform:uppercase;
+}
+.new_collectin_clothes {
+    display: grid;
+    gap: 1px;
+    margin-top: 3rem;
+    grid-template-columns: 25rem 25rem 25rem;
+}
+
+
+.catalog_item {
+    margin: 0 0 3rem 0 ;
+}
+.catalog_item p {
+    font-family: 'Lota Grotesque', sans-serif;
+}
+.catalog_item img{
+    border: 2px solid var(--color-2);
+    margin-bottom: 1rem;
+    transition: opacity 0.7s;
+}
+.catalog_item img:hover{
+    opacity: 0.6;
+}
+
+
+/*--------------*/
+/*FOURTH_SECTION*/
+/*--------------*/
+.fourth_section {
+    background-color: var(--color-2);
+}
+.fourth_conteiner {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 50px 0;
+}
+.title_four_conteiner {
+    text-align: center;
+    order: 2;
+}
+.title_four_conteiner h3 , .title_four_conteiner p ,.title_four_conteiner h4 ,.title_four_conteiner a{
+    font-family: 'Lota Grotesque', sans-serif;
+    color: var(--color-3);
+}
+.title_four_conteiner h4 {
+    font-size: 1.5rem;
+}
+.title_four_conteiner p {
+    max-width: 20rem;
+    padding:0 0  40px 0;
+}
+.title_four_conteiner a {
+  border: var(--color-3) 1px solid;
+  padding: 10px 40px;
+  border-radius: 20px;
+  transition: background-color 0.4s;
+}
+.title_four_conteiner a:hover {
+    
+    background-color: var(--color-3);
+    color: var(--color-2);
+  }
+.img_four_conteiner img {
+    height: 35rem;
+}
+.img_four_conteiner {
+    order: 1;
+}
+
+
+/*--------------*/
+/*fiveth_section*/
+/*--------------*/
+.fiveth_conteiner {
+    text-align: center;
+    overflow-x: hidden;
+}
+.fiveth_section{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .wrapper_five_section{
+    scrollbar-width: thin;
+    scrollbar-color: #000000 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .wrapper_five_section::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  .wrapper_five_section::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .wrapper_five_section::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 10px;
+    
+  }
+
+.wrapper_five_section{
+    scrollbar-width:auto;
+    display: flex;
+    overflow-x: auto;
+
+    
+    margin: 2rem 0 0 0;
+    
+}
+.wrapper_five_section .items_box{
+    min-width: 300px;
+}
+.items_box {
+    padding-bottom: 1.5rem;
+}
+.items_box img{
+    border: 1px solid var(--color-2);
+    margin: 0 auto 2rem auto  ;
+    height: 300px;
+    padding: 0 2rem;
+}
+.items_box p {
+    margin: 0 0 0 1.5rem;
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: start;
+    
+}
+
+
+/*-----------*/
+/*six_section*/
+/*-----------*/
+.sixth_section {
+    background-color: var(--color-6);
+    padding: 5rem 0 5rem 0;
+   
+}
+.title_six_conteiner p {
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 18px;
+    max-width: 400px; 
+    
+}
+.title_six_conteiner {
+    text-align: center;
+}
+.title_six_conteiner p{
+    margin: 0 auto 2rem auto;
+}
+.subscribe_input {
+    border-radius: 20px 0 0 20px;
+    color: var(--color-2);
+    background-color: var(--color-3);
+    padding: 10px 15px;
+    border: none;
+    outline:none;
+    -webkit-box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px -13px rgba(66, 68, 90, 1);
+}
+.subscribe_button {
+    background-color: var(--color-2);
+    color: var(--color-3);
+    font-family: 'Lota Grotesque', sans-serif;
+    padding: 10px 10px;
+    border-radius: 20px;
+    margin-left: -20px;
+    cursor: pointer;
+}
+
+
+
+/* 1250 */
+@media only screen and (max-width: 1250px) {
+
+    /*THIRD_section*/
+    .new_collectin_clothes {
+        display: grid;
+        gap: 1px;
+        margin-top: 3rem;
+        grid-template-columns: 25rem 25rem ;
+    }
+}
+
+
+/* 850 */
+@media only screen and (max-width: 850px) {
+    /* title_sections */
+    .title_sections {
+        font-size: 3rem;
+    }
+    
+    /*THIRD_section*/
+    .new_collectin h3{
+        font-family: 'Lota Grotesque', sans-serif;
+        font-size: 2rem;
+    }
+    .new_collectin_clothes {
+        display: grid;
+        gap: 1px;
+        margin-top: 3rem;
+        grid-template-columns: 17rem  ;
+    }
+
+    /* four_section */
+    .fourth_conteiner {
+        flex-direction: column;
+    }
+    .img_four_conteiner img {
+        height: 25rem;
+        margin: 50px 0 0 0;
+    }
+
+    /* five_section */
+    .five_title {
+        font-size: 40px;
+    }
+}

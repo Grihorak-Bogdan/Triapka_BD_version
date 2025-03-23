@@ -1,0 +1,490 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+a,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+body.lock {
+     overflow: hidden;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a{
+    color: var(--color-2);
+    text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+:root {
+    --color-1: #fff;
+    --color-2: #000;
+    --color-3: #f5f5f5;
+    --color-4: #808080;
+    --color-5: #f0f0f0;
+    --color-6: #bbc8d0;
+}
+
+.font-family{
+    font-family: 'Lota Grotesque', sans-serif;
+}
+
+
+
+/*------*/
+/*HEADER*/
+/*------*/
+.header_size {
+    padding: 0.5rem 0;
+    width: 100%;
+    background-color: var(--color-1);
+}
+.main_header_footer_size {
+    width: 90vw;
+    max-width: 110rem;
+}
+.main_header_position {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+    /*LOGO*/
+.main_logo_font h1{
+    font-family: 'Comfortaa', cursive;
+}
+.main_logo{
+    margin: auto 0;
+    max-height: 70px;
+}
+.main_logo_position {
+    display: flex;
+}
+.main_logo_position h1{
+    margin: auto 0;
+}
+.main_logo img {
+    height: 3rem;
+}
+    /*NAV*/
+.main_nav_position {
+    display: flex;
+}
+.header_menu_item {
+    padding: 2rem 1.5rem;
+    font-family: 'Lota Grotesque', sans-serif;
+   
+}
+.header_menu_item a:hover {
+    font-weight: 700;
+    border-bottom: 2px solid black;
+}
+    /*NAVIGATION*/
+.profile {
+    display: flex;
+}
+.profile img {
+    height: 2rem;
+    padding: 0 1rem;
+}
+
+.navigation {
+    margin: auto 0;
+}
+
+    /*header_burger*/
+.header_burger {
+    display: none;
+}
+.back_mob_blaclout{
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+}
+.back_mob_blaclout{
+    
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: opacity .5s;
+    width: 100vw;
+    z-index: 3;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    
+}
+.back_mob_blaclout.active{
+    opacity: 0.9;
+    pointer-events:all;
+}
+.kategor_mob {
+    display: none;
+}
+
+    /*-register-*/
+.register_login {
+        display: none;
+        
+}
+.register_login.active{
+        display: flex;
+        border-radius: 20px;
+        background-color: var(--color-1);
+        padding: 20px 50px;
+        position: absolute;
+        z-index: 20;
+}
+.register_login_div {
+        display: none;
+}
+.register_login_div.active {
+        width: 100vw;
+        height: 70vh;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+.close_registr {
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+}
+#sing h3{
+        margin: 40px 0 0 0;
+        text-align: center;
+        font-size: 25px;
+        font-family: 'Lota Grotesque', sans-serif;
+        
+}
+
+    /*-login-*/
+.login_register {
+            display: none;
+}
+.login_register.active{
+            display: flex;
+            border-radius: 20px;
+            background-color: var(--color-1);
+            padding: 20px 50px;
+            position: absolute;
+            z-index: 20;
+}
+.login_register_div {
+            display: none;
+}
+.login_register_div.active {
+            width: 100vw;
+            height: 70vh;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.close_login {
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+}
+    
+    /*-btn-*/
+.group{
+        margin: 30px 0 ;
+        display: flex;
+        justify-content: space-between;
+}
+.group label {
+        font-size: 16px;
+        
+        
+        font-family: 'Lota Grotesque', sans-serif;
+        margin: auto 10px auto 0;
+}
+.group input {
+        background-color: var(--color-1);
+        text-decoration: none;
+        border: solid var(--color-3);
+        font-family: 'Lota Grotesque', sans-serif;
+        padding: 10px 15px;
+        border-radius: 15px;
+}
+.btn_sing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+.btn_sing input {
+        cursor: pointer;
+        background-color: var(--color-2);
+        color: var(--color-1);
+        padding: 15px 25px;
+        border-radius: 20px;
+        border: solid var(--color-2);
+        font-family: 'Lota Grotesque', sans-serif;
+}
+.btn_sing input:hover {
+        background-color: var(--color-1);
+        color: var(--color-2);
+}
+.btn_sing a {
+        margin: 0 0 20px 0;
+        font-weight: 500;
+        font-size: 18px;
+        font-family: 'Lota Grotesque', sans-serif;
+}
+
+
+
+
+/*--------------*/
+/*footer_section*/
+/*--------------*/
+
+.main_footer_position {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.footer_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10rem 0 ;
+    background-color: var(--color-2);
+}
+.main_logo {
+    padding: 10px 5px;
+}
+.footer_nav {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.footer_nav h4{
+    color: var(--color-3);
+    font-family: 'Lota Grotesque', sans-serif;  
+    font-weight: 800;
+    font-size: 20px;
+    border-bottom: 2px solid var(--color-1);
+}
+.href_nav_footer{
+    color: var(--color-1);
+    font-family: 'Lota Grotesque', sans-serif;
+}
+.nav_footer_block{
+    margin: 0 50px;
+}
+.nav_footer_block a{
+    display: block;
+    color: var(--color-1);
+    font-family: 'Lota Grotesque', sans-serif; 
+    margin: 20px 0 ;
+    
+}
+.nav_footer_block a:hover{
+    border-bottom: 1px solid var(--color-1);
+}
+.footer_nav .main_logo{
+    margin: 0px;
+    background-color: var(--color-1);
+    border-radius: 10px;
+}
+.footer_copyright {
+    color: var(--color-1);
+    margin-top: 7rem;
+    font-family: 'Lota Grotesque', sans-serif;
+}
+
+
+
+
+/* 1250 */
+@media only screen and (max-width: 1250px) {
+
+    
+    /*footer*/
+    .footer_nav {
+        display: block;
+        width: 80vw;
+        margin: 0 auto;
+    }
+    .nav_footer_block {
+         margin: 0 0 1rem 0;
+        
+    }
+    .nav_footer_block a {
+        display: none;
+        
+    }
+    .footer_nav_logo {
+        display: none;
+    }
+    .nav_footer_one.active a,
+    .nav_footer_two.active a,
+    .nav_footer_three.active a,
+    .nav_footer_four.active a{
+        display: block;
+    }
+    .footer_section {
+        padding: 2rem;
+    }
+    .main_footer_position {
+        margin: 0;
+    }
+}
+
+
+
+/*media-1024*/
+@media only screen and (max-width: 1024px) {
+
+    /*header*/
+    .header_size {
+        padding:  1rem 0;
+    }
+    .main_nav_position {
+        display: none;
+    }
+    .profile img {
+        height: 1.75rem;
+        padding: 0 0.5rem;
+    }
+
+    /*LOGO*/
+    .main_logo_font {
+        font-size: 12px;
+    }
+    .main_logo img {
+        height: 2.5rem;
+    }
+
+    /*burger*/
+    .header_burger {
+        display: block;
+        margin: auto 0;
+        cursor: pointer;
+    }
+    .menu {
+        width: 2.1rem;
+        height: 1.25rem;
+        margin: 0 0 0 1rem;
+    }
+    .kategor_mob.active {
+        position: absolute;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+        right: 0;
+        background-color: var(--color-1);
+        height: 100vh;
+        top: 0;
+        padding: 60px 0 0 0;
+        overflow-y:scroll;
+        display: block;
+    }
+    .close_menu {
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .main_nav_mob_size .header_menu_item {
+        padding: 2rem 5rem;
+        cursor: pointer;
+    }
+    .header_menu_item:hover {
+        background: var(--color-6);
+    }
+}
+
+
+/* 850 */
+@media only screen and (max-width: 850px) {
+
+    /* header */
+    .register_login.active{
+        padding: 20px 20px;
+        max-width: 95vw;
+    }
+    .login_register.active{
+        padding: 20px 20px;
+        max-width: 95vw;   
+    }
+    
+}
+@media only screen and (max-width: 400px) {
+
+    
+    .group input {
+        width: 10rem;
+    }
+}

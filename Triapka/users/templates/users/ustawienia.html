@@ -1,0 +1,71 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{%block css%}
+
+ <link rel="stylesheet" href="{%static 'users/css/konto.css'%}">
+
+{%endblock%}
+
+{% block content%}
+	
+    <section class="konto_section container_position">
+        <div class="konto_container ">
+        
+            {% include "users/header_for_konto.html" %}  
+            <div class="edit_wall"  >
+                <form class='edit_form' action="{% url 'users:ustawienia' user.username  %}" method="post">
+                   {%csrf_token%}
+                    <div  id="sing">
+                        
+                        <h3>Edit</h3> 
+                        <div class="edit_group">
+
+                            <div class="group">
+                                <label id="password" for="{{form.first_name.id_for_label}}">First name:</label>
+                                {{ form.first_name }}
+                            </div>
+
+                            <div class="group"> 
+                                <label id="login" for="{{form.last_name.id_for_label}}">Last name:</label>
+                                {{form.last_name}}
+                                
+                            </div>
+
+                        </div>
+                        <div class="edit_group">
+
+                            <div class="group">
+                                <label id="password" for="{{form.username.id_for_label}}">Login:</label>
+                                {{form.username}}
+                            </div>
+
+                            <div class="group"> 
+                                <label id="login" for="{{form.email.id_for_label}}">Ел.пошта:</label>
+                                {{form.email}}
+                                
+                            </div>
+                            
+                        </div>
+
+                    </div>
+        
+                    <div class="btn_sing">
+                        <input type="submit" value="Save" class="submit">
+                    </div>
+
+                </form>
+            </div>
+            
+            
+        </div>
+    </section>
+
+{% endblock %}
+   
+{% block scripts %}
+
+    
+        
+{% endblock %}   
+ 
+    

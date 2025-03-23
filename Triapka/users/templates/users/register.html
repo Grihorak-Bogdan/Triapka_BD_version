@@ -1,0 +1,47 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{%block css%}
+
+ <link rel="stylesheet" href="{%static 'users/css/login_register.css'%}">
+
+{%endblock%}
+
+{% block content%}
+    {%if form.errors%} 
+            <div class="errors">
+
+                {{form.errors}}
+                
+            </div>
+    {% endif %}
+	 <section class=" login_section_position">
+        <form class="login_form" action="{%url 'users:register'%}" method="POST">
+            {% csrf_token %}
+            <a href="{%url 'products:home'%}" class="logo">
+                <img src="{%static 'products/img/tshirt.png'%}" alt="">
+                <h1 class="font-family">TriapkA</h1>
+            </a>
+            
+                
+            <div class="container_input">
+                {{form.username}}
+                {{form.first_name}}
+                {{form.last_name}}
+                {{form.email}}
+                {{form.password1}}
+                {{form.password2}}
+            </div>
+            
+            
+            <div class="container_btn" >
+                <a class="btn_second" href="{%url 'users:login'%}"  type="submit">Login</a>
+                <button class="btn_main" type="submit">Register</button>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}
+   
+{% block scripts %}
+    
+{% endblock %}   

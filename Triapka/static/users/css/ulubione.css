@@ -1,0 +1,35 @@
+.container_ulubione {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: 100%; /* Обеспечивает, что сетка занимает всю доступную ширину */
+    justify-content: center; /* Центрирование колонок внутри грида */
+}
+
+.product_card {
+    padding: 10px;
+    width: 100%; /* Установка ширины карточки */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Небольшой эффект тени для карточек */
+    transition: transform 0.3s ease; /* Анимация при наведении */
+}
+
+.product_card img {
+    width: 100%; /* Ширина изображения подстраивается под контейнер */
+    height: auto; /* Высота автоматически изменяется */
+}
+
+.product_card:hover {
+    transform: scale(1.02); /* Эффект увеличения при наведении */
+}
+
+@media (max-width: 768px) {
+    .container_ulubione {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container_ulubione {
+        grid-template-columns: 1fr; /* Все элементы в одну колонку на маленьких экранах */
+    }
+}

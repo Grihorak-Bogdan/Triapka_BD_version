@@ -1,0 +1,60 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{%block css%}
+
+ <link rel="stylesheet" href="{%static 'users/css/konto.css'%}">
+ <link rel="stylesheet" href="{%static 'orders/css/orders.css'%}">
+
+
+{%endblock%}
+
+{% block content%}
+	
+    <section class="konto_section container_position">
+        <div class="konto_container font_famely">
+        
+            {% include "users/header_for_konto.html" %} 
+           
+            <hr>
+            <div class="shopping_basket">
+               
+                {% if paid_orders %}
+                {% for order in paid_orders %}
+                <div class="paid_product ">
+                    <h3>Order #{{ order.id }}</h3>
+                    
+                        {% for item in order.basket_history.purchased_items %}
+                        <ul class="paid_order_items">
+                            <img class="paid_product_photo"src="{{ item.product_image }}" alt="{{ item.product_name }}">
+                            <li class="order_item_details">
+                                <p>Product name : {{ item.product_name }}</p>
+                                <p>Quantity : {{ item.quantity }}</p>
+                                <p>Price : {{ item.price }} zl</p> 
+                                
+                            </li>
+                        </ul>
+                            {% endfor %}
+                    
+                    
+                </div>
+                <div class="orders_sum_info">
+                    <a class="orders_info" href="{% url 'orders:order_info' order.id%}"> Product information </a>
+                    <p class="total_sum">Total sum : {{ order.basket_history.total_sum }} zl</p>
+                </div>
+                
+                <hr>
+                
+            {% endfor %}
+        {% else %}
+            <p>There are no paid orders.</p>
+        {% endif %}     
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+   
+  
+ 
+    

@@ -1,0 +1,66 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+{% load products_tags %}
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<section id="section_1">
+<div class="wall">
+    
+    {% for order in page_obj %}
+    <div class="product">
+        <div class="product_info">
+            <div >
+                <p>Id: {{ order.id }}</p>
+                <p>Name: {{ order.first_name }}</p>
+                <p>Last name: {{ order.last_name }}</p>
+                <p>Email: {{ order.email }}</p>
+                <p>Date: {{ order.created }}</p>
+                <p>Initiator: {{ order.initiator }}</p>
+                <p>Status: {{ order.get_status_display }}</p>
+            </div>
+        </div>    
+    </div>
+    {% endfor %}
+
+    
+    <div class="pagination">
+        <span class="nav_page">
+            
+            <span class="page_link{% if not page_obj.has_previous %} disabled {% endif %}">
+                <a href="{% if page_obj.has_previous %}?{% change_params page=1 %} {%else%} #{% endif %}">&laquo; First</a>
+            </span>
+            <span class="page_link{% if not page_obj.has_previous %} disabled {% endif %}">
+                <a href="{% if page_obj.has_previous %}?{% change_params page=page_obj.previous_page_number %} {%else%} #{% endif %}">Back</a>
+            </span>
+            
+    
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <strong class="page_link">{{ num }}</strong>
+                {% else %}
+                    <span class="page_link">
+                        <a href="?{% change_params page=num %}">{{ num }}</a>
+                    </span>
+                {% endif %}
+            {% endfor %}
+    
+            
+            <span class="page_link{% if not page_obj.has_next %} disabled {% endif %}">
+                <a href="{% if page_obj.has_next %} ?{% change_params page=page_obj.next_page_number %} {%else%} #{% endif %}">Next</a>
+            </span>
+            <span class="page_link{% if not page_obj.has_next %} disabled {% endif %}">
+                <a href="{% if page_obj.has_next %}?{% change_params page=page_obj.paginator.num_pages %}{%else%} #{% endif %}">Last &raquo;</a>
+            </span>
+            
+        </span>
+    </div>
+    
+</div>
+</section>
+{% endblock %}
+   
+{% block scripts %}  
+
+{% endblock %}   

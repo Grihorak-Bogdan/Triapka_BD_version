@@ -1,0 +1,172 @@
+/* Общие стили */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Стилизация шапки */
+#header {
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin_nav .category a {
+    
+    text-decoration: none;
+    color: #333;
+}
+
+.admin_nav svg {
+    fill: #333; /* Цвет иконок */
+}
+
+/* Стилизация логотипа */
+.logo_panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo_panel h2 {
+    margin: 0;
+    color: #333;
+}
+
+/* Стили для секции формы */
+section#section_1 {
+    
+    padding: 20px;
+}
+
+.wall {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form input[type="image"] {
+    cursor: pointer;
+}
+
+/* Кастомные стили для селектов */
+form select {
+    appearance: none; /* Убираем стандартный вид */
+    background-color: white;
+    cursor: pointer;
+}
+
+form input[type="image"] {
+    width: 100%; /* Задает ширину кнопки загрузки изображения */
+    padding: 10px; /* Задает внутренние отступы */
+    border: 1px solid #ddd; /* Задает тонкую границу вокруг кнопки */
+    border-radius: 4px; /* Закругляет углы кнопки */
+    cursor: pointer; /* Меняет указатель мыши на кнопочный при наведении */
+    background-color: #f4f4f4; /* Задает цвет фона кнопки */
+    margin-top: 5px; /* Добавляет верхний отступ для отделения от других элементов формы */
+    transition: background-color 0.3s; /* Добавляет плавное изменение цвета при наведении */
+}
+
+form input[type="image"]:hover {
+    background-color: #e2e2e2; /* Меняет цвет фона кнопки при наведении */
+}
+
+#sizeQuantitySection {
+    margin-top: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+#sizeQuantitySection legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.sizeQuantity {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.sizeQuantity label {
+    margin-right: 10px;
+    flex: 1 120px; /* Adjust size as needed */
+    min-width: 120px;
+}
+
+.sizeQuantity input,
+.sizeQuantity select {
+    flex: 1 1 60px; /* Adjust size as needed */
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.sizeQuantity button {
+    flex: 0 1 auto;
+    margin-left: auto; /* Pushes the button to the right */
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sizeQuantity button:hover {
+    background-color: #c0392b;
+}
+
+button[type="button"] {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button[type="button"]:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+
+/* Поддержка мобильных устройств */
+@media (max-width: 600px) {
+    .admin_nav, .logo_panel {
+        flex-direction: column;
+    }
+
+    .admin_nav svg.close_menu, .logo_panel svg.open_menu {
+        margin-bottom: 10px;
+    }
+}

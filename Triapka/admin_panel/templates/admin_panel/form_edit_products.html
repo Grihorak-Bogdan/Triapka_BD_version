@@ -1,0 +1,67 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %} 
+{%block css%}
+
+<link rel="stylesheet" href="{%static 'admin_panel/css/form_add_products.css'%}">
+ 
+<link rel="stylesheet" href="{%static 'admin_panel/css/form_edit_products.css'%}">
+{%endblock%}
+
+{% block content%}
+<section id="section_1">
+    <div class="wall">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <fieldset id="sizeQuantitySection">
+                <legend>Size and quantity:</legend>
+                {% for product_size in form.instance.product_in_productsize.all %}
+                <div class="sizeQuantity">
+                    <label for="sizes{{ forloop.counter0 }}">Size:</label>
+                    <select id="sizes{{ forloop.counter0 }}" name="sizes[]">
+                        {% for size in all_sizes %}
+                            <option value="{{ size.id }}" {% if size.id == product_size.size.id %}selected{% endif %}>{{ size.size }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="quantities{{ forloop.counter0 }}">Quantities:</label>
+                    <input type="number" id="quantities{{ forloop.counter0 }}" name="quantities[]" value="{{ product_size.quantity }}" min="0" required>
+                    <button type="button" onclick="removeSizeQuantity(this)">Delete</button><br><br>
+                </div>
+                {% endfor %}
+            </fieldset>
+            
+            <button type="button" onclick="addSizeQuantity()">Add product</button><br><br>
+            
+            <input type="submit" value="Safe">
+        </form>
+        
+        
+    </div>
+</section>
+{% endblock %}
+   
+{% block scripts %}  
+<script>
+    var sizeIndex = {{ form.instance.product_in_productsize.count }}; 
+
+    function addSizeQuantity() {
+        var sizesHtml = `{% for size in all_sizes %}<option value="{{ size.id }}">{{ size.size }}</option>{% endfor %}`;
+        var newDiv = document.createElement("div");
+        newDiv.setAttribute("class", "sizeQuantity");
+        newDiv.innerHTML = `<label for="sizes${sizeIndex}">Размер:</label>
+                            <select id="sizes${sizeIndex}" name="sizes[]">${sizesHtml}</select>
+                            <label for="quantities${sizeIndex}">Количество:</label>
+                            <input type="number" id="quantities${sizeIndex}" name="quantities[]" min="0" required>
+                            <button type="button" onclick="removeSizeQuantity(this)">Удалить</button><br><br>`;
+        
+        document.getElementById("sizeQuantitySection").appendChild(newDiv);
+        sizeIndex++;
+    }
+
+    function removeSizeQuantity(element) {
+        var div = element.parentNode;
+        div.remove();
+    }
+</script>
+
+{% endblock %}   

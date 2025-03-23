@@ -1,0 +1,168 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% load products_tags%}
+
+{%block css%}
+
+<link rel="stylesheet" href="{%static 'products/css/search.css'%}">
+<link rel="stylesheet" href="{%static 'products/css/item.css'%}">
+
+{%endblock%}
+
+{% block content%}
+	 <section class="search_section ">
+
+        <div class="search_container container_position">
+            <div class="title_search">
+                {% if gender %}
+                    <h1>{{ gender }}</h1>
+                {% endif %}
+            </div>
+
+            
+
+            <div class="block_hide_filter">
+                <div class="div_hide_filter">
+                    <button type="button" class="button_hide_filter" aria-expanded="false" aria-label="Hide Filters" > <span>Show Filters</span></button>
+                </div>
+            </div>
+            
+            <div class="lauout">
+                <div class="sidebar " hidden>
+                    <div class="block_hide_filter block_hide_filter_mob">
+                        <div class="div_hide_filter">
+                            <button type="button" class="button_hide_filter" aria-expanded="false" aria-label="Hide Filters" > <span>Hide Filters</span></button>
+                        </div>
+                    </div>
+                    
+                    
+                    <form method="get" action="{% url 'products:category' gender%}">
+                        <div class="price_check">
+                            <h5 class="title_check">Price</h5>
+                            <div class="price-wall">
+                            
+                                <div class="form-check-price ">
+                                    <input class="form-check-input" type="checkbox" name="price_ranges" value="0-129" id="Poniżej_129_zł" {% if "0-129" in price_ranges %} checked {% endif %}>
+                                    <label class="form-check-label" for="Poniżej_129_zł">Poniżej 129 zł</label>
+                                </div>
+                                <div class="form-check-price ">
+                                    <input class="form-check-input" type="checkbox" name="price_ranges" value="130-399" id="129_zł-399_zł" {% if "130-399" in price_ranges %} checked {% endif %}>
+                                    <label class="form-check-label" for="129_zł-399_zł">130zł - 399 zł</label>
+                                </div>
+                                <div class="form-check-price ">
+                                    <input class="form-check-input" type="checkbox" name="price_ranges" value="400-899" id="399_zł-899_zł" {% if "400-899" in price_ranges %} checked {% endif %}>
+                                    <label class="form-check-label" for="399_zł-899_zł">400 zł - 899 zł</label>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="brands_check">
+                            <h5 class="title_check">Brands</h5>
+                            <div class="brands-wall">
+                                <div class="form-check-brands ">
+                                    <input class="form-check-input" type="checkbox" name="brands_ranges" value="Nike" id="Nike"{% if "Nike" in brands_ranges %} checked {% endif %} >
+                                    <label class="form-check-label" for="Nike">Nike</label>
+                                </div>
+                                <div class="form-check-brands ">
+                                    <input class="form-check-input" type="checkbox" name="brands_ranges" value="Adidas" id="Adidas" {% if "Adidas" in brands_ranges %} checked {% endif %}>
+                                    <label class="form-check-label" for="Adidas">Adidas</label>
+                                </div>
+                                <div class="form-check-brands ">
+                                    <input class="form-check-input" type="checkbox" name="brands_ranges" value="Puma" id="Puma" {% if "Puma" in brands_ranges %} checked {% endif %}>
+                                    <label class="form-check-label" for="Puma">Puma</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="brands_check">
+                            <h5 class="title_check">Brands</h5>
+                            <div class="brands-wall">
+                                {%for category in categories%}
+                                <div class="form-check-brands ">
+                                    <input class="form-check-input" type="checkbox" name="categorys_ranges" value="{{category.name}}" id="{{category.name}}" {% if category.name in categorys_ranges %} checked {% endif %} >
+                                    <label class="form-check-label" for="{{category.name}}">{{category.name}}</label>
+                                </div>
+                                {%endfor%}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="brands_check">
+                            <h5 class="title_check">Size</h5>
+                            <div class="brands-wall">
+                                {% for size in sizes %}
+                                    <div class="form-check-brands ">
+                                        <input class="form-check-input" type="checkbox" name="size_ranges" value="{{ size.size }}" id="size_{{ size.id }}" {% if size.size in size_ranges %}checked{% endif %}>
+                                        <label class="form-check-label" for="size_{{ size.id }}">{{ size.size }} </label>
+                                    </div>
+                                
+                                    
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <input class="button_add_to_bag font-family " type="submit" value="Filter">
+                    </form>
+            
+                </div>
+                {% if products %}
+                <div class="catalog container_position">
+                    <div class="catalog_wall">
+                        {{category.id}}
+                        {% for product in  page_obj %}
+                            <a class="catalog_item" href="{% url 'products:item' product.id%}">
+                                <img src="{{ product.image.url }}" alt="">
+                                <p>Name: {{product.name}}</p> 
+                                <p>Price: {{product.price}} Zl</p>  
+                            </a>
+                            
+                        {% endfor %}
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+            <div class="pagination">
+                <span class="nav_page">
+                    
+                    <span class="page_link{% if not page_obj.has_previous %} disabled {% endif %}">
+                        <a href="{% if page_obj.has_previous %}?{% change_params page=1 %} {%else%} #{% endif %}">&laquo; First</a>
+                    </span>
+                    <span class="page_link{% if not page_obj.has_previous %} disabled {% endif %}">
+                        <a href="{% if page_obj.has_previous %}?{% change_params page=page_obj.previous_page_number %} {%else%} #{% endif %}">Back</a>
+                    </span>
+                    
+            
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <strong class="page_link">{{ num }}</strong>
+                        {% else %}
+                            <span class="page_link">
+                                <a href="?{% change_params page=num %}">{{ num }}</a>
+                            </span>
+                        {% endif %}
+                    {% endfor %}
+            
+                    
+                    <span class="page_link{% if not page_obj.has_next %} disabled {% endif %}">
+                        <a href="{% if page_obj.has_next %} ?{% change_params page=page_obj.next_page_number %} {%else%} #{% endif %}">Next</a>
+                    </span>
+                    <span class="page_link{% if not page_obj.has_next %} disabled {% endif %}">
+                        <a href="{% if page_obj.has_next %}?{% change_params page=page_obj.paginator.num_pages %}{%else%} #{% endif %}">Last &raquo;</a>
+                    </span>
+                    
+                </span>
+            </div>
+            {% else %}
+                <p class="error_product_access font-family"> Przepraszamy, ten produkt jest niedostępny </p>
+            {% endif %}
+        </div>
+
+    </section>
+{% endblock %}
+   
+{% block scripts %}
+    
+{% endblock %}   
+ 
+    

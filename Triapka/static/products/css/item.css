@@ -1,0 +1,290 @@
+/* ---- */
+/* ITEM */
+/* ---- */
+
+.custom-popup-class {
+    font-family: 'Lota Grotesque', sans-serif; 
+    border-radius: 10px;
+    position: relative; /* Для позиционирования линии таймера внутри уведомления */
+    padding-bottom: 15px; /* Добавляем немного отступа снизу для линии таймера */
+}
+
+.custom-title-class {
+    font-size: 16px;
+}
+
+.custom-timer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Начальная ширина линии */
+    height: 5px; /* Высота линии */
+    background-color: #ffffff; /* Цвет линии */
+    animation: shrink 2000ms linear; /* Анимация, совпадающая с таймером SweetAlert */
+}
+
+@keyframes shrink {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+.container_position {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.item_section {
+    min-height: 100vh;
+    width: 100%;
+    
+}
+.item_container {
+    padding: 7rem 0 ;
+}
+
+/* Foto_side */
+
+.foto_item img {
+    border: 2px solid var(--color-2);
+}
+
+/* wall_item */
+.wall_item {
+    display: flex;
+}
+
+/* sidebar */
+.mob_vers{
+    max-width: 25rem;
+} 
+
+.sidebar_item {
+    margin: 0 0 0 10rem;
+}
+.laptop_vers {
+    max-width: 25rem;
+}
+.title_item {
+    font-family: 'Lota Grotesque', sans-serif; 
+    margin-bottom: 3rem;
+}
+.title_item h1 {
+    font-size: 2rem;
+    
+}
+.title_item h2 {
+    font-size: 1rem;
+   
+}
+.price_item {
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+
+/* check-block-2 */
+    .wall_buttons_size {
+        margin: 1rem 0 3rem 0;
+    }
+    .size-wall {
+        display: grid;
+        gap:  0.5rem ;
+        grid-template-columns: 6rem 6rem 6rem 6rem ;
+    }
+    .button-size {
+        background-color: var(--color-1);
+        border: 2px solid var(--color-2);
+        border-radius: 5px;
+        padding: 5px 5px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    .button-size-nontarget {
+        background-color: var(--color-6);
+        border: 2px solid var(--color-3);
+        border-radius: 5px;
+        padding: 5px 5px;
+        margin: 0 5px;
+        color: var(--color-4) ;
+    }
+    .button-size:hover {
+        background-color: var(--color-2);
+        color: var(--color-1);
+        transition: background-color .5s;
+    }
+    .button-size.is-selected {
+        background-color: var(--color-2);
+        color: var(--color-1);
+    }
+
+    
+/* swiper */
+    .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+    .swiper {
+    width: 400px;
+    height: 500px;
+    }
+    .swiper {
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .swiper-button-next img,
+    .swiper-button-prev img {
+    background-color: var(--color-2);
+    opacity: 0.3;
+    padding: 10px;
+    border-radius: 50%;
+    transition: opacity .2s;
+    }
+    .swiper-button-next img:hover,
+    .swiper-button-prev img:hover {
+    opacity: 0.6;
+    }
+    .swiper-button-next ,
+    .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+    }
+    .swiper-pagination-bullet {
+    background-color: black;
+    height: 10px;
+    width: 10px;
+    }
+    .swiper-button-next::after, .swiper-rtl .swiper-button-prev::after {
+        content: none;
+    }
+    .swiper-button-prev::after, .swiper-rtl .swiper-button-next::after {
+        content: none;
+    }
+
+/* button-add */
+.add_to_bag {
+    display: flex;
+}
+.button_add_to_bag {
+    cursor: pointer;
+    background-color: var(--color-2);
+    color: var(--color-1);
+    padding: 0.8rem 6rem;
+    border-radius: 2rem;
+    border: 2px solid var(--color-2);
+    transition: background-color .3s;
+}
+.button_add_to_bag:hover {
+    
+    background-color: var(--color-1);
+    color: var(--color-2);
+    
+}
+
+
+.btn_follow {
+    padding: 0.8rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+
+.button_add_to_follow {
+    background-color: var(--color-1);
+    border: 2px solid var(--color-2);
+}
+.button_delete_to_follow:hover {
+    background-color: var(--color-4);
+}
+
+.button_delete_to_follow {
+    background-color: var(--color-4);
+    border: 2px solid var(--color-2);
+}
+.button_add_to_follow:hover {
+    background-color: var(--color-6);
+}
+
+/* mob_title */
+.mob_vers {
+    display: none;
+}
+
+
+
+    @media only screen and (max-width: 1200px) {
+
+        
+        
+    }
+
+
+    @media only screen and (max-width: 1000px) {
+        .laptop_vers {
+            display: none;
+        }
+        .mob_vers {
+            display: block;
+            padding-left: 2rem;
+        }
+        .wall_item {
+            display: block;
+           
+        }
+        
+        .sidebar_item {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .foto_item img {
+            height: 30rem;
+            width: 100%;
+        }
+        .add_to_bag {
+            align-items: center;
+            justify-content: center;
+        }
+        .size-wall {
+            display: grid;
+            gap:  0.5rem ;
+            grid-template-columns: 6rem 6rem 6rem  ;
+        }
+    }
+    @media only screen and (max-width: 400px) {
+        .swiper {
+            width: 300px;
+            height: 500px;
+            }
+            .mob_vers {
+                display: block;
+                padding-left: 1rem;
+            }
+            .button_add_to_bag {
+                
+                padding: 0.8rem 4rem;
+                
+            }
+    }
+    

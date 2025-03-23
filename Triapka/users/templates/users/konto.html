@@ -1,0 +1,141 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{%block css%}
+
+ <link rel="stylesheet" href="{%static 'users/css/konto.css'%}">
+
+{%endblock%}
+
+{% block content%}
+	
+    <section class="konto_section container_position">
+        <div class="konto_container ">
+        
+            {% include "users/header_for_konto.html" %} 
+           
+            <hr>
+            <div class="shopping_basket">
+                {%csrf_token%}
+                    <p class="total_quantity font_famely" id="totalQuantity">Total quantity: {{ baskets.total_quantity}}</p>
+                    {%if baskets%}
+                    {%for basket in baskets %}
+                    <div class="item_shopping_basket">  
+                        <div class="info_items">
+                                <a href="{% url 'products:item' basket.product.id%}">
+                                    <img class="image_shopping_basket" src="{{ basket.product.image.url}}" alt="">
+                                </a>
+                                <div class="title_item font_famely" > 
+                                    <a href="{% url 'products:item' basket.product.id%}">
+                                        <h3>{{basket.product.name}}</h3>
+                                    </a>
+                                    <h2>{{basket.product.gender}}</h2> 
+                                    <p>{{basket.product.price}} zl. </p>
+                                    
+                                    <input class='input_quantity' type="number" id="quantity" name="quantity" value="{{basket.quantity}}" data-product-id="{{basket.product.id}}" data-product-size="{{basket.size}}"  onchange="updateQuantity(this)">
+                                    
+                                    <p>Size: {{basket.size}} </p>
+                                </div>
+                        </div>
+                        
+                        <div >
+                            
+                            <a class='basket_btn' href="{%url 'products:basket_remove' basket.id %}"><svg xmlns="http://www.w3.org/2000/svg" height="36" width="34" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg></a> 
+                            
+
+
+                        </div>
+                    </div>
+                    
+                    {%endfor%}
+                    
+                    
+                        <div class="btn_shopping_basket"> 
+                            <p class="total_sum font_famely" id="totalPrice">Total price: {{baskets.total_sum}} zl.</p>
+                            <a href="{%url 'orders:order_create'%}" class="btn_buy_item font_famely" >Buy</a>
+                        </div>
+                    
+                    {%else%}
+
+                    {%endif%}
+                   
+               
+                
+                
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+   
+{% block scripts %}
+
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+
+
+        function updateQuantity(inputElement) {
+            console.log('Function updateQuantity called'); // Для отладки
+            var productId = inputElement.getAttribute('data-product-id');
+            var newQuantity = inputElement.value;
+            var newSize = inputElement.getAttribute('data-product-size');
+            
+
+
+            // Проверка на положительное количество
+            if (newQuantity < 1) {
+                alert("Количество должно быть положительным числом");
+                inputElement.value = 1; // Сброс к минимально допустимому значению
+                return;
+            }
+        
+            // Отправка данных на сервер через AJAX
+            fetch('/users/update-quantity/', { // Укажите здесь URL вашего API для обновления количества
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Добавьте необходимые заголовки, например CSRF токен для Django
+                    'X-CSRFToken': getCookie('csrftoken') // Функция getCookie должна быть определена для получения CSRF токена
+                },
+                body: JSON.stringify({
+                    'product_id': productId,
+                    'quantity': newQuantity, 
+                    'size': newSize ,
+                })
+            })
+            .then(response => {
+                console.log('Response received', response);
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Ошибка при обновлении количества.');
+            })
+            .then(data => {
+                console.log('Количество успешно обновлено:', data);
+                // Обновление интерфейса, если необходимо
+                document.getElementById('totalQuantity').innerText = 'Total quantity: ' + data.new_total_quantity;
+                document.getElementById('totalPrice').innerText = 'Total price: ' + data.new_total_sum + ' zl.';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+        </script>
+        
+{% endblock %}   
+ 
+    

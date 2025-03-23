@@ -1,0 +1,58 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{%block css%}
+
+ <link rel="stylesheet" href="{%static 'users/css/login_register.css'%}">
+
+{%endblock%}
+
+{% block content%}
+    {%if messages or form.non_field_errors%} 
+            <div class="errors">
+                {%if messages %}
+                    {%for message in messages%}
+                        {{message}}
+                    {% endfor %}
+                {%else%}
+                {{form.non_field_errors}}
+                {%endif%}
+            </div>
+    {% endif %}
+	 <section class=" login_section_position">
+        
+            
+        <form class="login_form" action="{%url 'users:login'%}" method="POST">
+            {% csrf_token %}
+            <a href="{%url 'products:home'%}" class="logo">
+                <img src="{%static 'products/img/tshirt.png'%}" alt="">
+                <h1 class="font-family">TriapkA</h1>
+            </a>
+            
+                
+            <div class="container_input">
+                {{form.username}}
+                {{form.password}}
+            </div>
+            
+            <div class="container_btn" >
+                <button class="btn_main" type="submit">Login</button>
+                <a href="{%url 'users:register'%}" class="btn_second" type="submit">Register</a>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}
+   
+{% block scripts %}
+    
+{% endblock %}   
+ 
+    
+
+
+   
+
+
+   
+    
+    

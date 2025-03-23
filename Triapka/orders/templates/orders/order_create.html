@@ -1,0 +1,105 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'products/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'orders/css/order_create.css' %}">
+{% endblock %}
+
+{% block content %}
+        
+<section class='order_page'>
+    <h1 class="font-family" style="display: flex;
+    justify-content: center;"> Order </h1>
+    <div class="order_details">
+        <div class="order font-family">
+            
+            <h4>Informacje o dostawie</h4>
+            <form class='order_form' action="{% url 'orders:order_create' %}" method="post">
+                {% csrf_token %}
+                <div class="order_labels">
+                    <div class="order_label">
+                        <label for="{{ form.first_name.id_for_label }}" class="form-label">First name:</label>
+                        <br>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="order_label">
+                        <label for="{{ form.last_name.id_for_label }}" class="form-label">Last name:</label>
+                        <br>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="order_label">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">Email:</label>
+                        <br>
+                        {{ form.email }}
+                    </div>
+                    <div class="order_label">
+                        <label for="{{ form.address.id_for_label }}" class="form-label">Address:</label>
+                        <br>
+                        {{ form.address }}
+                    </div>
+                    <div class="order_label">
+                        <label for="{{ form.address.id_for_label }}" class="form-label">Address:</label>
+                        <br>
+                        {{ form.postal_code }}
+                    </div>
+                    <div class="order_label">
+                        <label for="{{ form.address.id_for_label }}" class="form-label">Address:</label>
+                        <br>
+                        {{ form.locality }}
+                    </div>
+                    <div class="order_label">
+                        <label for="{{ form.address.id_for_label }}" class="form-label">Address:</label>
+                        <br>
+                        {{ form.region }}
+                    </div>
+                    <div class="order_label">
+                        <label for="{{ form.address.id_for_label }}" class="form-label">Address:</label>
+                        <br>
+                        {{ form.phone_number }}
+                    </div>
+                </div>
+                <hr>
+                <button class="order_btn_continue" type="submit">Continue</button>
+            </form>
+        </div>
+
+        <div class="mob_totaly_price">
+            <p class="font-family">Total quantity: {{ baskets.total_quantity }}. Total price: {{ baskets.total_sum }} zl.</p>
+            
+        </div>
+
+        <div class="block_hide_basket">
+            
+            <div class="div_hide_basket">
+                <h4 class="button_hide_basket font-family">Show what's in your basket.</h4>
+            </div>
+            <div class='basket_side' style="display: none;">
+                
+                <p class="font-family">Total quantity: {{ baskets.total_quantity }} </p>
+                <p class="font-family">Total price: {{ baskets.total_sum }} zl.</p>
+                <hr>
+                {% for basket in baskets %}
+                <div class="basket_items font-family">
+                    <a href="{% url 'products:item' basket.product.id%}" >
+                        <img style="height: 100px; margin: auto;" src="{{ basket.product.image.url}}" alt="">
+                    </a>
+                    <h5>Name: {{ basket.product.name }}</h5>
+                    <p>Size: {{ basket.size }}</p>
+                    <p>Quantity: {{ basket.quantity }}</p>
+                    <p>Price: {{ basket.sum }}</p>
+                </div>
+                {% endfor %}
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'orders/js/order.js' %}"></script>
+
+{% endblock %}

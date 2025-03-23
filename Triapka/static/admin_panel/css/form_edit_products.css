@@ -1,0 +1,39 @@
+/* Стили для полей ввода */
+.input-field {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%; /* Обеспечивает полную ширину в контейнере */
+}
+
+/* Стили для многострочных текстовых полей */
+.textarea-field {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%; /* Обеспечивает полную ширину в контейнере */
+    height: 100px; /* Фиксированная высота */
+}
+
+/* Стили для полей выбора файлов */
+.file-input {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%; /* Обеспечивает полную ширину в контейнере */
+    padding: 10px;
+}
+
+/* Стили для выпадающих списков */
+.select-field {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%; /* Обеспечивает полную ширину в контейнере */
+    appearance: none; /* Убирает стандартное оформление */
+    background-color: white;
+    cursor: pointer;
+}

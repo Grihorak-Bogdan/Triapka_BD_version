@@ -1,0 +1,157 @@
+.font_famely {
+    font-family: 'Lota Grotesque', sans-serif;
+}
+.container_position {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.konto_container {
+    min-height: 100vh;
+    padding: 4rem 0;
+    width: 90vw;
+    max-width: 110rem;
+    
+   
+}
+.konto_nav a:hover{
+    font-weight: 700;
+    border-bottom: 2px solid black;
+}
+
+.user_name {
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 2rem;
+}
+.edit_wall {
+    
+    padding: 2rem 3rem;
+    border: 1px solid var(--color-2);
+    background-color: var(--color-5);
+    border-radius: 20px;
+    width: 50rem;
+    margin: 2rem auto 2rem auto;
+}
+
+.btn_edit {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    font-family: 'Lota Grotesque', sans-serif;
+    font-size: 1rem;
+    background: none;
+}
+.btn_edit:not(:last-child) {
+    margin: 0 1rem 0 0;
+}
+
+.edit_group {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+.edit_group .group {
+    margin: 1rem 1rem;
+}
+
+.item_shopping_basket {
+    display: flex;
+    justify-content: space-between  ; 
+    border: 2px solid var(--color-2);
+    border-radius: 20px; 
+    padding: 1rem 1rem; 
+    margin-bottom: 1rem;  
+}
+.image_shopping_basket {
+    height: 200px;
+    
+}
+.info_items {
+    display: flex;
+   
+}
+.title_item {
+     margin: 1rem 0 0 1rem;
+}
+
+.title_item h2 {
+    font-size: 1rem; 
+
+}
+
+.total_sum {
+    padding: 0 1rem;
+}
+
+.btn_shopping_basket{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.btn_buy_item {
+   
+    cursor: pointer;
+    background-color: var(--color-2);
+    color: var(--color-1) ;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    border: 2px solid var(--color-2);
+}
+.btn_buy_item:hover{
+    
+    background-color: var(--color-1);
+    color: var(--color-2) ;
+
+}
+.total_quantity {
+    padding: 1rem 0;
+    font-weight: 700;
+}
+.input_quantity{
+    text-align:center;
+    padding: 0;
+    margin: 0.5rem 0;
+    width: 50px;
+  }
+  
+.input_quantity::-webkit-outer-spin-button,
+.input_quantity::-webkit-inner-spin-button {
+   
+    
+    margin: 0;
+  }
+
+.active {
+    font-weight: bold;
+    
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .edit_wall {
+        padding: 1rem 0 ;
+        width: 90vw;
+        
+    }
+    .edit_group {
+        
+        display: block;
+        
+    }
+    .image_shopping_basket {
+        max-height: 10rem;
+        min-width: 6rem;
+    }
+    .title_item h1 {
+        font-size: 1rem; 
+    }
+
+    .title_item h2 {
+        font-size: 0.75rem;
+    }
+    .basket_btn svg {
+        height: 1.6rem;
+    }
+}

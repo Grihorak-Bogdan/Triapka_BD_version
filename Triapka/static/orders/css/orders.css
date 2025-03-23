@@ -1,0 +1,38 @@
+.shopping_basket {
+    margin: 40px 0 0 0;
+}
+.paid_product {
+    padding: 10px;
+}
+.paid_product_photo {
+    width: 120px;
+}
+.paid_order_items {
+    display: flex;
+    margin: 30px 0;
+}
+.order_item_details {
+    
+    display: block;
+    
+    margin: 0 0 0 20px;
+    right: auto;
+}
+.orders_sum_info {
+    text-align: right;
+    margin: 30px 0 0 0;
+}
+
+.orders_info {
+    
+    border: 1px solid var(--color-2);
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: var(--color-1);
+    background-color: var(--color-2);
+}
+
+.total_sum {
+    margin-top: 10px;
+    padding: 0;
+}

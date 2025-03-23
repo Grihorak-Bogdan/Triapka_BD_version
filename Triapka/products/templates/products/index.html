@@ -1,0 +1,187 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{%block css%}
+
+<link rel="stylesheet" href="{%static 'products/css/index.css'%}">
+
+{%endblock%}
+
+{% block content%}
+	 <section class="main_section_size main_section_position main_section_font">
+        <div class="conteiner">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img src="{%static 'products/img/clothe.jpg'%}" alt="">
+                        <div class="block_new_info">
+                            <h3>FEEl </h3>
+                                <br>
+                            <h3> BETTER</h3>  
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{%static 'products/img/clothe1.jpg'%}" alt="">
+                        <div class="block_new_info">
+                            <h3>FEEl </h3>
+                                <br>
+                            <h3> BETTER</h3>  
+                            
+                        </div>
+                    </div>
+                    
+                
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+              
+                
+                <div class="swiper-button-prev"><img src="{%static 'products/img/back.png'%}" alt="" fetchpriority="high"></div>
+                <div class="swiper-button-next"><img src="{%static 'products/img/next.png'%}" alt=""></div>
+              
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+              </div>
+        </div>
+    </section>
+
+    <section class="second_section_size section_position second_section_font ">
+        <div>
+            <div class="run_line run_line1_positio">
+                <div class="scroll scroll_animate1" >
+                    <div>
+                        <span>
+                            Zara.Adidas.Nice.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.Zara.Adidas.Nice.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            Zara.Adidas.Nice.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.Zara.Adidas.Nice.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="title_second_sectin">
+                <h3>
+                    Streat<br>Shop
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, eos!</p>
+            </div>
+            <div class="run_line run_line2_positio">
+                <div class="scroll scroll_animate2" >
+                    <div>
+                        <span>
+                            Zara.Adidas.Nike.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.Zara.Adidas.Nike.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            Zara.Adidas.Nike.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.Zara.Adidas.Nike.Puma.Jordan.Supreme.Boss.Guess.Gap.Fendi.Prada.Hermes.LV.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    <section class="third_section section_position">
+        <div class="new_collectin ">
+            <h3 class="title_sections">The Collection</h3>
+            <div class="new_collectin_clothes">
+                {% for product in  products_new_colection %}
+                            <a class="catalog_item" href="{% url 'products:item' product.id%}">
+                                <img src="{{ product.image.url }}" alt="">
+                                <p>{{product.name}}</p> 
+                                <p>{{product.price}} Zl</p>  
+                            </a>
+                            
+                {% endfor %}
+            
+            </div>
+        </div>
+    </section>
+
+    <section class="fourth_section section_position ">
+        <div class="fourth_conteiner">
+            <div class="title_four_conteiner">
+                <h3 class="title_sections">
+                    Champion
+                </h3>
+                <h4>
+                    The best t-shirt
+                </h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis recusandae exercitationem assumenda voluptate. Veniam, inventore.
+                </p>
+                <a href="#"> Shop now </a>
+            </div>
+            <div class="img_four_conteiner">
+                <img src="{%static 'products/img/four_section.png'%}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="fiveth_section">
+        <div class="fiveth_conteiner">
+
+            <div >
+                <h3 class="title_sections five_title">Collection <br> champion</h3>
+            </div>
+            
+            <div class="wrapper_five_section" id="wrapper_five_section">
+                {% for product in  products %}
+                            <a  class="items_box" href="{% url 'products:item' product.id%}">
+                                <img src="{{ product.image.url }}" alt="">
+                                <p>{{product.name}}</p> 
+                                <p>{{product.price}} Zl</p>  
+                            </a>
+                            
+                {% endfor %}
+                {% for product in  products %}
+                            <a  class="items_box" href="{% url 'products:item' product.id%}">
+                                <img src="{{ product.image.url }}" alt="">
+                                <p>{{product.name}}</p> 
+                                <p>{{product.price}} Zl</p>  
+                            </a>
+                            
+                {% endfor %}
+                {% for product in  products %}
+                            <a  class="items_box" href="{% url 'products:item' product.id%}">
+                                <img src="{{ product.image.url }}" alt="">
+                                <p>{{product.name}}</p> 
+                                <p>{{product.price}} Zl</p>  
+                            </a>
+                            
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="sixth_section ">
+        
+            <div class="title_six_conteiner">
+                <h3 class="title_sections five_title">
+                    Subscribe to</br>
+                    Newseller
+                </h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati tempore voluptas cupiditate?</p>
+                
+                <div class="text-field">
+                        <div class="subscribe_section">
+                            <input class="subscribe_input" type="email"  id="find" placeholder="" >
+                            <button class="subscribe_button">Subscribe</button>
+                        </div>
+                </div>
+            </div>
+               
+        
+    </section>
+
+{% endblock %}
+   
+{% block scripts %}
+    <script src="{%static 'products/js/swiper_index.js'%}"></script>
+{% endblock %}   
+ 

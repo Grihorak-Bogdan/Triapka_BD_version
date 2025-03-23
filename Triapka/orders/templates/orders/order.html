@@ -1,0 +1,57 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{%block css%}
+
+ <link rel="stylesheet" href="{%static 'users/css/konto.css'%}">
+ <link rel="stylesheet" href="{%static 'orders/css/orders.css'%}">
+ <link rel="stylesheet" href="{%static 'orders/css/order.css'%}">
+
+{%endblock%}
+
+{% block content%}
+	
+    <section class="konto_section container_position font-family">
+        
+        <div class="order_content_wrapper"> 
+
+            <div class="order_items_container">
+                {% for item in order.basket_history.purchased_items %}
+                    <ul class="paid_order_items">
+                        <img class="paid_product_photo"src="{{ item.product_image }}" alt="{{ item.product_name }}">
+                        <li class="order_item_details">
+                            <p>Product name : {{ item.product_name }}</p>
+                            <p>Quantity : {{ item.quantity }}</p>
+                            <p>Price : {{ item.price }} zl</p> 
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+            
+
+            <div class="order_details_container">
+                <div class="new-div1">
+                    <h3> Wysyłka </h3>
+                    <p> {{order.first_name}} {{order.last_name}}  </p>
+                    <p> {{order.address}} </p>
+                    <p> {{order.email}} </p>
+                    <p> {{order.phone_number}} </p>
+                    <p> {{order.created}} </p>
+                    <p> {{order.get_status_display}} </p>
+                </div>
+                <hr>
+                <div class="new-div2">
+                   <h3> Podsumowanie </h3>
+                   <p>Suma: {{ order.basket_history.total_sum }} zl</p> 
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </section>
+
+{% endblock %}
+   
+  
+ 
+    

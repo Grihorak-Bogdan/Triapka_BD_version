@@ -1,0 +1,53 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{%block css%}
+
+<link rel="stylesheet" href="{%static 'users/css/konto.css'%}">
+<link rel="stylesheet" href="{%static 'users/css/ulubione.css'%}">
+
+{%endblock%}
+
+{% block content%}
+	
+    <section class="konto_section container_position font_famely">
+        <div class="konto_container ">   
+            {% include "users/header_for_konto.html" %}
+            <hr>
+
+            <div class="ulubione_wall"> 
+
+                <div class="container_ulubione ">
+                    {% for product in ulubione %}
+                    
+                    <a href="{% url 'products:item' product.id %}" >
+                        <div class="product_card">
+                            <img src="{{ product.image.url }}" alt="Фото {{ product.name }}">
+                            <strong>{{ product.name }}</strong>
+                            <div>Price : {{ product.price }} злотых</div>
+                            <div>Category : {{ product.category.name }}</div>
+                            <div>Brand : {{ product.brands.name }}</div>
+                        </div>
+                    </a>
+                    
+                    {% empty %}
+                    <p>You haven't added any products to your favorites yet.</p>
+                    {% endfor %}
+                
+
+               
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+   
+{% block scripts %}
+
+    
+        
+{% endblock %}   
+ 
+    
